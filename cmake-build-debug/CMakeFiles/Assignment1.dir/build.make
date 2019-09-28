@@ -43,10 +43,10 @@ RM = /home/appsec/Downloads/clion-2019.2.2/bin/cmake/linux/bin/cmake -E remove -
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/appsec/AppicationSecurity/Assignment1
+CMAKE_SOURCE_DIR = /home/appsec/assignment1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/appsec/AppicationSecurity/Assignment1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/appsec/assignment1/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Assignment1.dir/depend.make
@@ -59,28 +59,58 @@ include CMakeFiles/Assignment1.dir/flags.make
 
 CMakeFiles/Assignment1.dir/main.c.o: CMakeFiles/Assignment1.dir/flags.make
 CMakeFiles/Assignment1.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/appsec/AppicationSecurity/Assignment1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Assignment1.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assignment1.dir/main.c.o   -c /home/appsec/AppicationSecurity/Assignment1/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/appsec/assignment1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Assignment1.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assignment1.dir/main.c.o   -c /home/appsec/assignment1/main.c
 
 CMakeFiles/Assignment1.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assignment1.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/appsec/AppicationSecurity/Assignment1/main.c > CMakeFiles/Assignment1.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/appsec/assignment1/main.c > CMakeFiles/Assignment1.dir/main.c.i
 
 CMakeFiles/Assignment1.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assignment1.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/appsec/AppicationSecurity/Assignment1/main.c -o CMakeFiles/Assignment1.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/appsec/assignment1/main.c -o CMakeFiles/Assignment1.dir/main.c.s
+
+CMakeFiles/Assignment1.dir/spell.c.o: CMakeFiles/Assignment1.dir/flags.make
+CMakeFiles/Assignment1.dir/spell.c.o: ../spell.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/appsec/assignment1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Assignment1.dir/spell.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assignment1.dir/spell.c.o   -c /home/appsec/assignment1/spell.c
+
+CMakeFiles/Assignment1.dir/spell.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assignment1.dir/spell.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/appsec/assignment1/spell.c > CMakeFiles/Assignment1.dir/spell.c.i
+
+CMakeFiles/Assignment1.dir/spell.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assignment1.dir/spell.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/appsec/assignment1/spell.c -o CMakeFiles/Assignment1.dir/spell.c.s
+
+CMakeFiles/Assignment1.dir/dictionary.c.o: CMakeFiles/Assignment1.dir/flags.make
+CMakeFiles/Assignment1.dir/dictionary.c.o: ../dictionary.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/appsec/assignment1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Assignment1.dir/dictionary.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assignment1.dir/dictionary.c.o   -c /home/appsec/assignment1/dictionary.c
+
+CMakeFiles/Assignment1.dir/dictionary.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assignment1.dir/dictionary.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/appsec/assignment1/dictionary.c > CMakeFiles/Assignment1.dir/dictionary.c.i
+
+CMakeFiles/Assignment1.dir/dictionary.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assignment1.dir/dictionary.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/appsec/assignment1/dictionary.c -o CMakeFiles/Assignment1.dir/dictionary.c.s
 
 # Object files for target Assignment1
 Assignment1_OBJECTS = \
-"CMakeFiles/Assignment1.dir/main.c.o"
+"CMakeFiles/Assignment1.dir/main.c.o" \
+"CMakeFiles/Assignment1.dir/spell.c.o" \
+"CMakeFiles/Assignment1.dir/dictionary.c.o"
 
 # External object files for target Assignment1
 Assignment1_EXTERNAL_OBJECTS =
 
 Assignment1: CMakeFiles/Assignment1.dir/main.c.o
+Assignment1: CMakeFiles/Assignment1.dir/spell.c.o
+Assignment1: CMakeFiles/Assignment1.dir/dictionary.c.o
 Assignment1: CMakeFiles/Assignment1.dir/build.make
 Assignment1: CMakeFiles/Assignment1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/appsec/AppicationSecurity/Assignment1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable Assignment1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/appsec/assignment1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable Assignment1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Assignment1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -93,6 +123,6 @@ CMakeFiles/Assignment1.dir/clean:
 .PHONY : CMakeFiles/Assignment1.dir/clean
 
 CMakeFiles/Assignment1.dir/depend:
-	cd /home/appsec/AppicationSecurity/Assignment1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/appsec/AppicationSecurity/Assignment1 /home/appsec/AppicationSecurity/Assignment1 /home/appsec/AppicationSecurity/Assignment1/cmake-build-debug /home/appsec/AppicationSecurity/Assignment1/cmake-build-debug /home/appsec/AppicationSecurity/Assignment1/cmake-build-debug/CMakeFiles/Assignment1.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/appsec/assignment1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/appsec/assignment1 /home/appsec/assignment1 /home/appsec/assignment1/cmake-build-debug /home/appsec/assignment1/cmake-build-debug /home/appsec/assignment1/cmake-build-debug/CMakeFiles/Assignment1.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Assignment1.dir/depend
 

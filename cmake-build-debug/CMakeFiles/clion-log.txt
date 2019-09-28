@@ -1,4 +1,4 @@
-/home/appsec/Downloads/clion-2019.2.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/appsec/AppicationSecurity/Assignment1
+/home/appsec/Downloads/clion-2019.2.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/appsec/assignment1
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/appsec/AppicationSecurity/Assignment1/cmake-build-debug
+-- Build files have been written to: /home/appsec/assignment1/cmake-build-debug

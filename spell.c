@@ -1,102 +1,354 @@
 #include <stdio.h>
-#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <string.h>
+
+#include <sys/types.h>
+
 #include "dictionary.h"
-#include <stdbool.h>
-#include <dictionary.c>
+
+#include <ctype.h>
+
+
+
+
+
+char *return_punctuation(char *str){
+
+    if (str == NULL){
+
+        return NULL;
+
+    }
+
+    char *originalstring =str;
+
+    char *newstring = str + strlen(str) - 1;
+
+
+
+    while (ispunct(*originalstring)) originalstring++;
+
+    while (ispunct(*newstring) && originalstring < newstring) {
+
+        *newstring = 0;
+
+        newstring--;
+
+    }
+
+
+
+    for (int i = 0; i <= newstring - originalstring + 1; i++){
+
+        str[i] = originalstring[i];
+
+    }
+
+    originalstring = str;
+
+
+
+    if (strlen(originalstring) == 0){
+
+        return NULL;
+
+    }
+
+    return originalstring;
+
+}
+
+
+
+
+
+char * str_to_lower(char *str)
+
+{
+
+    char *unknownstring = str;  // unknown string
+
+    char *lowerstring = str;   // lower string
+
+
+
+    if(str != NULL) //NULL
+
+    {
+
+        if(strlen(str) != 0) //"" ?
+
+        {
+
+            while(*unknownstring)
+
+            {
+
+                *lowerstring = tolower(*unknownstring);
+
+                ++lowerstring;
+
+                ++unknownstring;
+
+            }
+
+            *lowerstring = '\0';
+
+
+
+            return str;
+
+        }
+
+    }
+
+    return "";
+
+}
+
+
+
 
 
 /**
- * Array misspelled is populated with words that are misspelled. Returns the length of misspelled.
+
+Array misspelled is populated with words that are misspelled. Returns the length of misspelled.
+
  */
-int check_words(FILE* fp, hashmap_t hashtable[], char * misspelled[]);
 
-{
-//Set int num_misspelled to 0.
-int num_misspelled = 0;
-//While line in fp is not EOF (end of file):
-while( (character = fgetc(file)) != EOF)
-{
+int check_words(FILE* fp, hashmap_t hashtable[], char * misspelled[]) {
+
+    char *position = 0;
+
+    char *position_character;
+
+    int num_misspelled = 0;   //set int num_misspelled to 0
+
+    char string[80];
 
 
 
+    if (fp == NULL) {
 
-/**
-    Read the line.
-    Split the line on spaces.
-    For each word in line:
-        If not check_word(word):
-            Append word to misspelled.
+        exit(5);
 
-            */
-    //Increment num_misspelled.
-    num_misspelled++;
+    }
+
+
+
+    while (fgets(string, 80, fp) != NULL) {
+
+        if ((position = strchr(string, '\n')) != NULL) {
+
+            *position = '\0';
+
+        }
+
+        position_character = strtok(string, " ");
+
+
+
+        if (position_character != NULL && strlen(position_character) > LENGTH) {
+
+            position_character = NULL;
+
+        }
+
+
+
+        position_character = return_punctuation(position_character);
+
+
+
+        while (position_character != NULL) {
+
+            if (check_word(position_character, hashtable)) {
+
+                position_character = strtok(NULL, " ");
+
+                position_character = return_punctuation(position_character);
+
+            }
+
+            else if (check_word(str_to_lower(position_character), hashtable)) {
+
+                position_character = strtok(NULL, " ");
+
+                position_character = return_punctuation(position_character);
+
+            }
+
+            else {
+
+                if (num_misspelled < MAX_MISSPELLED) {
+
+                    misspelled[num_misspelled] = (char *) malloc((LENGTH + 1) * sizeof(char));
+
+                    strncpy(misspelled[num_misspelled], position_character, (LENGTH + 1));
+
+                    num_misspelled++;
+
+                    position_character = strtok(NULL, " ");
+
+                    position_character = return_punctuation(position_character);
+
+                }
+
+                else {
+
+                    return num_misspelled;
+
+                }
+
+            }
+
+        }
+
+
+
+    }
+
+    return num_misspelled;
+
 }
-//Return num_misspelled.
-return num_misspelled;
-}
 
 
 
-bool check_word(string word, hashmap hashtable[])
+
+
+
+
+bool check_word(const char* word, hashmap_t hashtable[])
+
 {
-   // Set int bucket to the output of hash_function(word).
-    int bucket = hash_function(word);
-    //Set hashmap_t cursor equal to hashmap[bucket].
-    node* cursor = hashtable[bucket];
-    // While cursor is not NULL:
+
+    int bucket = hash_function(word);       // Set int bucket to the output of hash_function(word).
+
+    node * cursor = hashtable[bucket];     // /Set hashmap_t cursor equal to hashmap[bucket].
+
     while (cursor != NULL) {
-        //If word equals cursor->word:
-        if (strcmp(word, cursor->word) == 0) {
+
+        if (strcmp(word, cursor->word) == 0) {    //If word equals cursor->word:
+
             return true;
-        } else if (strcmp(lower_word, cursor->word) == 0) {
-            return true;
+
         }
-        cursor = cursor->next;
+
+        else
+
+            cursor = cursor->next;
+
     }
+
     return false;
+
 }
+
+
 
 
 
 /**
+
  * Loads dictionary into memory.  Returns true if successful else false.
+
  */
+
 bool load_dictionary(const char* dictionary_file, hashmap_t hashtable[])
+
 {
-   //Initialize all values in hash table to NULL.
-    for(int i = 0; i < HASH_SIZE; i++)
-    {
-        hashtable[i] = NULL;
+
+    FILE* the_dictionary;
+
+    char *line_buff = NULL;
+
+    char *position = 0;
+
+    int bucket = 0;
+
+    size_t line_buff_size = 0;
+
+    ssize_t line_size;
+
+
+
+    the_dictionary = fopen(dictionary_file, "r");
+
+    if (the_dictionary == NULL){
+
+        printf("Failed to load dictionary");
+
+        return false;
+
     }
 
-    //Open dict_file from path stored in dictionary.
-    //If dict_file is NULL:
-      //  return false.
-    FILE* the_dictionary;
-    the_dictionary = fopen(wordlist.txt, "r");
-    if (the_dictionary == NULL)
-    {
-        printf("Failed to load dictionary");
-        return false;
+
+
+    line_size = getline(&line_buff, &line_buff_size, the_dictionary);
+
+
+
+    if ((position = strchr(line_buff, '\n')) !=NULL){
+
+        *position = '\0';
+
     }
-    char buffer[LENGTH+1];
-    while (fscanf(the_dictionary, "%s", buffer) > 0)
-    {
-        node* new_node = malloc(sizeof(node));
-        new_node->next = NULL;
-        strcpy(new_node->word, buffer);
-        int bucket = hash_function(new_node->word);
-        if (hashtable[bucket] == NULL)
-        {
-            hashtable[bucket] = new_node;
+
+
+
+    while(line_size>=0){
+
+        if (line_size > LENGTH+1){
+
+            line_size = getline(&line_buff, &line_buff_size, the_dictionary);
+
+            if ((position = strchr(line_buff, '\n'))!=NULL){
+
+                *position = '\0';
+
+            }
+
+            continue;
+
         }
-        else
-        {
-            new_node->next = hashtable[bucket];
-            hashtable[bucket] = new_node;
+
+
+
+        bucket = hash_function(line_buff);
+
+
+
+        struct node *cursor = (struct node*) malloc(sizeof(struct node));
+
+        strncpy(cursor->word, line_buff, LENGTH+1);
+
+        cursor->next = hashtable[bucket];
+
+        hashtable[bucket]=cursor;
+
+
+
+        line_size = getline(&line_buff, &line_buff_size, the_dictionary);
+
+        if ((position = strchr(line_buff, '\n')) != NULL){
+
+            *position = '\0';
+
         }
-        number_of_words++;
+
     }
+
+
+
+
+
+    free(line_buff);
+
     fclose(the_dictionary);
+
     return true;
+
 }
+

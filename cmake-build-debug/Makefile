@@ -48,10 +48,10 @@ RM = /home/appsec/Downloads/clion-2019.2.2/bin/cmake/linux/bin/cmake -E remove -
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/appsec/AppicationSecurity/Assignment1
+CMAKE_SOURCE_DIR = /home/appsec/assignment1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/appsec/AppicationSecurity/Assignment1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/appsec/assignment1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/appsec/AppicationSecurity/Assignment1/cmake-build-debug/CMakeFiles /home/appsec/AppicationSecurity/Assignment1/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/appsec/assignment1/cmake-build-debug/CMakeFiles /home/appsec/assignment1/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/appsec/AppicationSecurity/Assignment1/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/appsec/assignment1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,33 @@ Assignment1/fast:
 	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/build
 .PHONY : Assignment1/fast
 
+dictionary.o: dictionary.c.o
+
+.PHONY : dictionary.o
+
+# target to build an object file
+dictionary.c.o:
+	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/dictionary.c.o
+.PHONY : dictionary.c.o
+
+dictionary.i: dictionary.c.i
+
+.PHONY : dictionary.i
+
+# target to preprocess a source file
+dictionary.c.i:
+	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/dictionary.c.i
+.PHONY : dictionary.c.i
+
+dictionary.s: dictionary.c.s
+
+.PHONY : dictionary.s
+
+# target to generate assembly for a file
+dictionary.c.s:
+	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/dictionary.c.s
+.PHONY : dictionary.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -150,6 +177,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/main.c.s
 .PHONY : main.c.s
 
+spell.o: spell.c.o
+
+.PHONY : spell.o
+
+# target to build an object file
+spell.c.o:
+	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/spell.c.o
+.PHONY : spell.c.o
+
+spell.i: spell.c.i
+
+.PHONY : spell.i
+
+# target to preprocess a source file
+spell.c.i:
+	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/spell.c.i
+.PHONY : spell.c.i
+
+spell.s: spell.c.s
+
+.PHONY : spell.s
+
+# target to generate assembly for a file
+spell.c.s:
+	$(MAKE) -f CMakeFiles/Assignment1.dir/build.make CMakeFiles/Assignment1.dir/spell.c.s
+.PHONY : spell.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -159,9 +213,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Assignment1"
 	@echo "... edit_cache"
+	@echo "... dictionary.o"
+	@echo "... dictionary.i"
+	@echo "... dictionary.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... spell.o"
+	@echo "... spell.i"
+	@echo "... spell.s"
 .PHONY : help
 
 

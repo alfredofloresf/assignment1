@@ -4,7 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/appsec/AppicationSecurity/Assignment1/main.c" "/home/appsec/AppicationSecurity/Assignment1/cmake-build-debug/CMakeFiles/Assignment1.dir/main.c.o"
+  "/home/appsec/assignment1/dictionary.c" "/home/appsec/assignment1/cmake-build-debug/CMakeFiles/Assignment1.dir/dictionary.c.o"
+  "/home/appsec/assignment1/main.c" "/home/appsec/assignment1/cmake-build-debug/CMakeFiles/Assignment1.dir/main.c.o"
+  "/home/appsec/assignment1/spell.c" "/home/appsec/assignment1/cmake-build-debug/CMakeFiles/Assignment1.dir/spell.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

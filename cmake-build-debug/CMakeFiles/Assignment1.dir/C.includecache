@@ -6,7 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/home/appsec/AppicationSecurity/Assignment1/main.c
+/home/appsec/assignment1/dictionary.h
+stdbool.h
+-
 stdio.h
+-
+
+/home/appsec/assignment1/main.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+sys/types.h
+-
+check.h
+-
+dictionary.h
+/home/appsec/assignment1/dictionary.h
+ctype.h
 -
 
