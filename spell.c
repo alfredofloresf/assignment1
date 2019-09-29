@@ -138,7 +138,7 @@ int check_words(FILE* fp, hashmap_t hashtable[], char * misspelled[]) {
 
 
 
-    while (fgets(string, 80, fp) != NULL) {
+    while (fgets(string, 160, fp) != NULL) {
 
         if ((position = strchr(string, '\n')) != NULL) {
 
